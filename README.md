@@ -8,3 +8,7 @@ https://github.com/maca134/phpooptest
 
 
 Commits and solutions for other drivers welcome ;) 
+
+
+Please set 777 chmod to cache folder.
+Thanks
