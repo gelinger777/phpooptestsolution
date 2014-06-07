@@ -40,13 +40,16 @@ class Datacache_Driver_File implements Datacache_Driver {
             throw new DataCache_ItemexpNotFound('Cache data does not exist');
 
 
-        //@@TODO Here Needs to be fixed!!!!!
-        if(filetime($filename) + $this->ttl < time()){
-            return false;
+        $data = file_get_contents($filename);
+
+        $data =  unserialize($data);
+
+        if($data->ttl + filemtime($filename) >= time()){
+            return $data->data;
         }
 
-        $data = file_get_contents($filename);
-        return unserialize($data);
+        return false;
+
     }
 
     /**

@@ -25,9 +25,11 @@ class DataCache_Itemexp extends Datacache_Item {
      */
     public function __construct($data) {
 
-        parent::__construct($data);
-
-        $this->data = $data;
+        $this->data =
+            array(
+                'ttl' => $this->ttl,
+                'data' => $data
+            );
 
     }
 

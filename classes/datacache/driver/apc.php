@@ -30,8 +30,8 @@ class Datacache_Driver_Apc implements Datacache_Driver
     public function get($id)
     {
 
-        return apc_fetch($this->prefix.$id);
-
+        $data =  apc_fetch($this->prefix.$id);
+        return $data->data;
     }
 
 }
